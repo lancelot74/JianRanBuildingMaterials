@@ -508,6 +508,7 @@ a.channel-wa:hover .channel-go { color: #fff; }
   gap: clamp(16px, 2.4vw, 28px);
   margin-top: clamp(40px, 6vw, 68px);
 }
+.cat-grid[hidden] { display: none; } /* author display:grid overrides UA [hidden]; restore the hide */
 .cat-card {
   display: flex;
   flex-direction: column;
