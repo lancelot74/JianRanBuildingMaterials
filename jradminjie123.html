@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Catalog admin</title>
+  <style>
+    :root { --line:#403a34; --soft:rgba(64,58,52,.2); --slate:#555; }
+    * { box-sizing: border-box; }
+    body { font-family: ui-sans-serif, system-ui, sans-serif; color:#222; margin:0; padding:24px; max-width:760px; }
+    h1 { font-size:18px; } h2 { font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--slate); }
+    input, select, button { font:inherit; padding:9px 11px; border:1px solid var(--soft); background:#fff; }
+    button { cursor:pointer; }
+    .status { margin:10px 0; min-height:1.2em; font-size:14px; }
+    .status.err { color:#b3261e; } .status.ok { color:#1da851; }
+    .row { display:flex; gap:10px; align-items:center; margin:10px 0; flex-wrap:wrap; }
+    label { display:block; font-size:13px; margin:12px 0 4px; }
+    [hidden] { display:none !important; }
+    .tabs button { border-bottom:2px solid transparent; background:none; }
+    .tabs button.on { border-bottom-color:var(--line); font-weight:600; }
+    #preview canvas { max-width:200px; height:auto; border:1px solid var(--soft); margin-top:8px; }
+    .prow { display:flex; gap:12px; align-items:center; padding:8px 0; border-bottom:1px solid var(--soft); }
+    .prow.is-hidden { opacity:.5; }
+    .pthumb { width:54px; height:54px; object-fit:cover; border:1px solid var(--soft); }
+    .pmeta { flex:1; } .pn { font-size:14px; } .pc { font-size:12px; color:var(--slate); }
+    .badge { font-size:11px; color:#b3261e; } .rowbtn { font-size:13px; }
+  </style>
+</head>
+<body>
+  <h1>Catalog admin</h1>
+
+  <form id="gate-form">
+    <div id="gate">
+      <label for="pass">Passphrase</label>
+      <div class="row"><input type="password" id="pass" autocomplete="off"><button type="submit">Unlock</button></div>
+      <div class="status err" id="gate-err"></div>
+    </div>
+  </form>
+
+  <div id="app" hidden>
+    <div class="status ok" id="unlock-note" hidden>Unlocked.</div>
+
+    <div id="token-setup" hidden>
+      <h2>GitHub token</h2>
+      <p style="font-size:13px;color:var(--slate)">Paste a token with contents read/write on <code>JianRanBuildingMaterials</code>. Stored only in this browser.</p>
+      <form id="token-form">
+        <div class="row"><input type="password" id="token-input" placeholder="ghp_…" autocomplete="off" style="flex:1"><button type="submit">Save</button></div>
+      </form>
+      <div class="status err" id="token-status"></div>
+    </div>
+
+    <div id="tools" hidden>
+      <div class="status" id="token-badge"></div>
+      <div class="tabs row">
+        <button type="button" id="tab-btn-add" class="on">Add</button>
+        <button type="button" id="tab-btn-manage">Manage</button>
+      </div>
+
+      <div id="tab-add">
+        <form id="add-form">
+          <label for="f-category">Category</label>
+          <select id="f-category"></select>
+          <label for="f-photo">Photo</label>
+          <input type="file" id="f-photo" accept="image/*">
+          <div id="preview"></div>
+          <label for="f-caption">Caption (optional)</label>
+          <input type="text" id="f-caption" placeholder="e.g. Matte black sliding door">
+          <div class="row"><button type="submit" id="add-submit">Publish</button></div>
+        </form>
+        <div class="status" id="add-status"></div>
+      </div>
+
+      <div id="tab-manage" hidden>
+        <div class="row"><input type="text" id="search" placeholder="Search caption, category…" style="flex:1"></div>
+        <div class="status" id="list-count"></div>
+        <div id="prod-list"></div>
+        <div id="deleted-wrap" hidden>
+          <h2>Deleted entries <span id="deleted-count"></span></h2>
+          <div id="deleted-list"></div>
+        </div>
+        <div class="status" id="manage-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/catalog-seed.js"></script>
+  <script src="assets/js/catalog-admin.js"></script>
+  <script src="assets/js/jradminjie123.js"></script>
+</body>
+</html>
