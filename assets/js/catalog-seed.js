@@ -1,0 +1,31 @@
+/* Catalog seed — the existing photo set. Safe to hand-edit. The admin page
+   (jradminjie123.html) does NOT touch this file; it writes catalog-admin.js. */
+window.__CATALOG_SEED = [
+  { slug: 'design-na-01', category: 'kitchen', src: 'assets/designs/design-na-01.jpg', caption: 'Grey shaker kitchen' },
+  { slug: 'design-na-02', category: 'kitchen', src: 'assets/designs/design-na-02.jpg', caption: 'Dark wood island kitchen' },
+  { slug: 'design-na-03', category: 'kitchen', src: 'assets/designs/design-na-03.jpg', caption: 'Olive green classic kitchen' },
+  { slug: 'design-na-04', category: 'kitchen', src: 'assets/designs/design-na-04.jpg', caption: 'Grey kitchen with island' },
+  { slug: 'design-na-05', category: 'kitchen', src: 'assets/designs/design-na-05.jpg', caption: 'Two-tone classic kitchen' },
+  { slug: 'design-na-06', category: 'kitchen', src: 'assets/designs/design-na-06.jpg', caption: 'Cream glass-front kitchen' },
+  { slug: 'design-sea-01', category: 'kitchen', src: 'assets/designs/design-sea-01.jpg', caption: 'Matte modern island kitchen' },
+  { slug: 'design-sea-02', category: 'kitchen', src: 'assets/designs/design-sea-02.jpg', caption: 'Modern kitchen, open shelving' },
+  { slug: 'design-sea-03', category: 'kitchen', src: 'assets/designs/design-sea-03.jpg', caption: 'Modular cabinet range' },
+  { slug: 'design-sea-04', category: 'kitchen', src: 'assets/designs/design-sea-04.jpg', caption: 'Cream modern island kitchen' },
+  { slug: 'design-sea-05', category: 'kitchen', src: 'assets/designs/design-sea-05.jpg', caption: 'Wood modern kitchen' },
+  { slug: 'design-sea-06', category: 'kitchen', src: 'assets/designs/design-sea-06.jpg', caption: 'Dark modern kitchen' },
+  { slug: 'design-sea-07', category: 'kitchen', src: 'assets/designs/design-sea-07.jpg', caption: 'Green island kitchen' },
+  { slug: 'design-sea-08', category: 'kitchen', src: 'assets/designs/design-sea-08.jpg', caption: 'Marble island kitchen' },
+  { slug: 'design-sea-09', category: 'kitchen', src: 'assets/designs/design-sea-09.jpg', caption: 'Dark kitchen with dining' },
+  { slug: 'design-sea-10', category: 'kitchen', src: 'assets/designs/design-sea-10.jpg', caption: 'Island kitchen with ovens' },
+  { slug: 'design-sea-11', category: 'kitchen', src: 'assets/designs/design-sea-11.jpg', caption: 'Wood & cream open kitchen' },
+  { slug: 'design-sea-12', category: 'kitchen', src: 'assets/designs/design-sea-12.jpg', caption: 'Marble display & bar cabinet' },
+  { slug: 'window-01', category: 'windows', src: 'assets/windows/window-01.jpg', caption: 'Aluminium sliding doors' },
+  { slug: 'window-02', category: 'windows', src: 'assets/windows/window-02.jpg', caption: 'Bifold glass doors' },
+  { slug: 'window-03', category: 'windows', src: 'assets/windows/window-03.jpg', caption: 'Corner picture window' },
+  { slug: 'window-04', category: 'windows', src: 'assets/windows/window-04.jpg', caption: 'Aluminium entry door' },
+  { slug: 'window-05', category: 'windows', src: 'assets/windows/window-05.jpg', caption: 'Bifold doors to kitchen' },
+  { slug: 'window-06', category: 'windows', src: 'assets/windows/window-06.jpg', caption: 'Sliding stacker doors' },
+  { slug: 'window-07', category: 'windows', src: 'assets/windows/window-07.jpg', caption: 'Bathroom window' },
+  { slug: 'window-08', category: 'windows', src: 'assets/windows/window-08.jpg', caption: 'Facade glazing' },
+  { slug: 'window-09', category: 'windows', src: 'assets/windows/window-09.jpg', caption: 'Awning window' }
+];
