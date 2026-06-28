@@ -45,6 +45,8 @@
     .tabs button.on { border-bottom-color:var(--walnut); color:var(--walnut); font-weight:600; }
     #tok-clear { background:none; color:var(--slate); border:1px solid var(--line-soft); padding:5px 11px; font-size:12px; letter-spacing:.04em; margin-left:10px; }
     #tok-clear:hover { background:none; color:var(--walnut); border-color:var(--walnut); }
+    .reveal { background:none; color:var(--slate); border:1px solid var(--line-soft); padding:5px 12px; font-size:12px; letter-spacing:.04em; }
+    .reveal:hover { background:none; color:var(--walnut); border-color:var(--walnut); }
     #preview canvas { max-width:220px; height:auto; border:1px solid var(--line-soft); margin-top:10px; }
     .prow { display:flex; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line-soft); }
     .prow.is-hidden { opacity:.5; }
@@ -64,7 +66,7 @@
   <form id="gate-form">
     <div id="gate">
       <label for="pass">Passphrase</label>
-      <div class="row"><input type="password" id="pass" autocomplete="off"><button type="submit">Unlock</button></div>
+      <div class="row"><input type="password" id="pass" autocomplete="off"><button type="button" id="pass-toggle" class="reveal" aria-pressed="false">Show</button><button type="submit">Unlock</button></div>
       <div class="status err" id="gate-err"></div>
     </div>
   </form>

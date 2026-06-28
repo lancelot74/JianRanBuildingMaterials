@@ -156,6 +156,13 @@
       else { $('gate-err').textContent = 'Wrong passphrase.'; }
     } catch (err) { $('gate-err').textContent = 'Error: ' + err.message; }
   });
+  $('pass-toggle').addEventListener('click', function () {
+    var inp = $('pass'), showing = inp.type === 'text';
+    inp.type = showing ? 'password' : 'text';
+    this.textContent = showing ? 'Show' : 'Hide';
+    this.setAttribute('aria-pressed', showing ? 'false' : 'true');
+    inp.focus();
+  });
 
   // ===== UI: token =====
   function renderTokenBadge() {
