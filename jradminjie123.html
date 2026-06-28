@@ -5,26 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
   <title>Catalog admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --line:#403a34; --soft:rgba(64,58,52,.2); --slate:#555; }
-    * { box-sizing: border-box; }
-    body { font-family: ui-sans-serif, system-ui, sans-serif; color:#222; margin:0; padding:24px; max-width:760px; }
-    h1 { font-size:18px; } h2 { font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--slate); }
-    input, select, button { font:inherit; padding:9px 11px; border:1px solid var(--soft); background:#fff; }
-    button { cursor:pointer; }
-    .status { margin:10px 0; min-height:1.2em; font-size:14px; }
-    .status.err { color:#b3261e; } .status.ok { color:#1da851; }
-    .row { display:flex; gap:10px; align-items:center; margin:10px 0; flex-wrap:wrap; }
-    label { display:block; font-size:13px; margin:12px 0 4px; }
+    :root {
+      --linen:#ffffff; --walnut:#403a34; --charcoal:#333333; --slate:#555555;
+      --line:#403a34; --line-soft:rgba(64,58,52,.20); --ok:#1da851; --err:#b3261e;
+      --sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing:border-box; }
+    body {
+      font-family:var(--sans); font-weight:400; color:var(--walnut); background:var(--linen);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.5;
+      margin:0; padding:clamp(30px,6vw,56px); max-width:720px;
+    }
+    h1 {
+      font-size:20px; font-weight:600; text-transform:uppercase; letter-spacing:.14em;
+      padding-bottom:18px; margin-bottom:6px; border-bottom:1px solid var(--line);
+    }
+    h2 { font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.16em; color:var(--slate); margin:28px 0 12px; }
+    label { display:block; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.14em; color:var(--slate); margin:18px 0 7px; }
+    input, select { font:inherit; color:var(--walnut); background:var(--linen); padding:11px 13px; border:1px solid var(--line-soft); }
+    input:focus, select:focus { outline:none; border-color:var(--walnut); }
+    code { font-family:ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size:.92em; }
+    button {
+      font:inherit; cursor:pointer; padding:11px 22px; border:1px solid var(--line);
+      background:var(--walnut); color:var(--linen); letter-spacing:.02em; transition:background .15s;
+    }
+    button:hover { background:#2e2925; }
+    .status { margin:12px 0; min-height:1.2em; font-size:13px; color:var(--slate); }
+    .status.err { color:var(--err); } .status.ok { color:var(--ok); }
+    .row { display:flex; gap:10px; align-items:center; margin:12px 0; flex-wrap:wrap; }
+    label + .row, label + #preview { margin-top:7px; }
     [hidden] { display:none !important; }
-    .tabs button { border-bottom:2px solid transparent; background:none; }
-    .tabs button.on { border-bottom-color:var(--line); font-weight:600; }
-    #preview canvas { max-width:200px; height:auto; border:1px solid var(--soft); margin-top:8px; }
-    .prow { display:flex; gap:12px; align-items:center; padding:8px 0; border-bottom:1px solid var(--soft); }
+    .tabs { gap:26px; border-bottom:1px solid var(--line-soft); margin:24px 0; }
+    .tabs button { border:none; border-bottom:2px solid transparent; background:none; color:var(--slate); padding:10px 2px; font-size:12px; text-transform:uppercase; letter-spacing:.12em; }
+    .tabs button:hover { background:none; color:var(--walnut); }
+    .tabs button.on { border-bottom-color:var(--walnut); color:var(--walnut); font-weight:600; }
+    #tok-clear { background:none; color:var(--slate); border:1px solid var(--line-soft); padding:5px 11px; font-size:12px; letter-spacing:.04em; margin-left:10px; }
+    #tok-clear:hover { background:none; color:var(--walnut); border-color:var(--walnut); }
+    #preview canvas { max-width:220px; height:auto; border:1px solid var(--line-soft); margin-top:10px; }
+    .prow { display:flex; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line-soft); }
     .prow.is-hidden { opacity:.5; }
-    .pthumb { width:54px; height:54px; object-fit:cover; border:1px solid var(--soft); }
-    .pmeta { flex:1; } .pn { font-size:14px; } .pc { font-size:12px; color:var(--slate); }
-    .badge { font-size:11px; color:#b3261e; } .rowbtn { font-size:13px; }
+    .pthumb { width:56px; height:56px; object-fit:cover; border:1px solid var(--line-soft); }
+    .pmeta { flex:1; } .pn { font-size:14px; color:var(--walnut); }
+    .pc { font-size:11px; color:var(--slate); text-transform:uppercase; letter-spacing:.1em; margin-top:3px; }
+    .badge { font-size:10px; text-transform:uppercase; letter-spacing:.12em; color:var(--err); }
+    .rowbtn { background:none; color:var(--walnut); border:1px solid var(--line-soft); padding:6px 13px; font-size:12px; letter-spacing:.04em; }
+    .rowbtn:hover { background:none; border-color:var(--walnut); }
+    .rowbtn.del { color:var(--err); border-color:rgba(179,38,30,.32); }
+    .rowbtn.del:hover { background:none; border-color:var(--err); }
   </style>
 </head>
 <body>
