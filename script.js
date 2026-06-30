@@ -5,6 +5,8 @@
   var CATEGORIES = [
     { id: 'kitchen',  label: 'Kitchen & Cabinetry' },
     { id: 'windows',  label: 'Windows & Doors' },
+    { id: 'decking',  label: 'Decking' },
+    { id: 'wall-cladding', label: 'Wall Cladding' },
     { id: 'tiles',    label: 'Tiles' },
     { id: 'stone',    label: 'Stone & Marble' },
     { id: 'flooring', label: 'Flooring' },
@@ -72,7 +74,7 @@
   }
 
   function route() {
-    var m = (location.hash || '').match(/^#cat=([a-z]+)/);
+    var m = (location.hash || '').match(/^#cat=([a-z-]+)/);
     if (m) renderGallery(m[1]);
     else showCards();
   }

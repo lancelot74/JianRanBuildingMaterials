@@ -14,6 +14,8 @@
   var CATEGORIES = [
     { id: 'kitchen',  label: 'Kitchen & Cabinetry' },
     { id: 'windows',  label: 'Windows & Doors' },
+    { id: 'decking',  label: 'Decking' },
+    { id: 'wall-cladding', label: 'Wall Cladding' },
     { id: 'tiles',    label: 'Tiles' },
     { id: 'stone',    label: 'Stone & Marble' },
     { id: 'flooring', label: 'Flooring' },
