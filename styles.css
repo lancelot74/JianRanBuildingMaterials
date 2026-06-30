@@ -545,3 +545,14 @@ a.channel-wa:hover .channel-go { color: #fff; }
 
 /* Contact — how-to-order line */
 .order-flow { font-size: 13px; color: var(--slate); margin-top: 10px; }
+
+/* How-it's-made: co-extrusion cross-section diagram */
+.process-diagram { max-width: 520px; margin: clamp(22px, 3.5vw, 40px) 0 0; }
+.process-diagram svg { width: 100%; height: auto; display: block; }
+.pd-cap { fill: #7c8a5f; stroke: var(--walnut); stroke-width: 1.5; }
+.pd-core { fill: #d2c09a; stroke: var(--walnut); stroke-width: 1; }
+.pd-fleck { fill: #8a754f; opacity: .55; }
+.pd-leader { stroke: var(--line-soft); stroke-width: 1; }
+.pd-head { fill: var(--walnut); font: 600 15px var(--sans); letter-spacing: .14em; }
+.pd-sub { fill: var(--slate); font: 400 14px var(--sans); }
+.process-diagram figcaption { font-size: 12px; color: var(--slate); margin-top: 12px; }
