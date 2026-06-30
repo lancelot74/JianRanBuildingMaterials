@@ -542,3 +542,6 @@ a.channel-wa:hover .channel-go { color: #fff; }
 }
 @media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .cat-grid { grid-template-columns: 1fr; } }
+
+/* Contact — how-to-order line */
+.order-flow { font-size: 13px; color: var(--slate); margin-top: 10px; }
